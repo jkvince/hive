@@ -1,0 +1,5 @@
+.mono/
+.import/
+.idea/
+data_*/
+mono_crash.*.json

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/lofi-jazz-cafe-327791.mp3-e0cb6bd13fb110840f67add84e82347b.mp3str"
+
+[deps]
+
+source_file="res://audio/lofi-jazz-cafe-327791.mp3"
+dest_files=[ "res://.import/lofi-jazz-cafe-327791.mp3-e0cb6bd13fb110840f67add84e82347b.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
