@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://audio/lofi-jazz-cafe-327791.mp3" type="AudioStream" id=1]
 [ext_resource path="res://Main.cs" type="Script" id=2]
+[ext_resource path="res://GameLogic.cs" type="Script" id=3]
 
 [sub_resource type="SpatialMaterial" id=4]
 flags_transparent = true
@@ -32,6 +33,7 @@ albedo_color = Color( 0.0784314, 0.321569, 0.454902, 0.0156863 )
 script = ExtResource( 2 )
 
 [node name="GameLogic" type="Node" parent="."]
+script = ExtResource( 3 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
