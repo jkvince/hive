@@ -31,7 +31,7 @@ public class Main : Spatial
 					.SetEase(Tween.EaseType.Out)
 					.SetTrans(Tween.TransitionType.Expo);
 				_fistClick = true;
-
+				_audioStreamPlayer.Play();
 			}
 		}
 	}

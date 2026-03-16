@@ -5,20 +5,27 @@ import numpy as np
 
 import sys
 
-# 28 total pieces, meaning the biggest the board could be is 28 pieces long.
-# 28 x 28 x (7) = 5488
+# Input -> Conv2D -> Conv2D -> Flatten -> Hidden512 -> Hidden256 -> Hidden128 -> Output
 #
+# layer 1 - bitboard for white queen
+# layer 2 - bitboard for white grasshoppers
+# ...
+# layer 8 - bitboard for white mosquito
+# ...
+# layer 16 - bitboard for the black mosquito
+# + bitboard for turn node(0 white, 1 black) same size for bitboards but filled with the same values
 #
+# hidden layers ReLU for activation:
+# - layer 1: 512 nodes
+# - layer 2: 256 nodes
+# - layer 3: 128 nodes
 #
-#
+# output layer:
+# - one node
 
-# ==========================================
-# 1. THE NEURAL NETWORK (The Brain)
-# ==========================================
 class HiveNet(nn.Module):
     def __init__(self, input_size):
         super(HiveNet, self).__init__()
-        # Simple architecture: Input -> Hidden -> Output
         self.layer1 = nn.Linear(input_size, 128)
         self.relu = nn.ReLU()
 
@@ -37,9 +44,7 @@ class HiveNet(nn.Module):
         x = self.output(x)
         return self.tanh(x)
 
-# ==========================================
-# 2. HELPER: CALCULATE DISCOUNTED REWARDS
-# ==========================================
+
 def calculate_targets(game_history, final_result, gamma=0.99):
     """
     This solves the 'Credit Assignment' problem.
@@ -64,9 +69,7 @@ def calculate_targets(game_history, final_result, gamma=0.99):
         
     return targets
 
-# ==========================================
-# 3. MOCK DATA LOADER (Replace this with your JSON load)
-# ==========================================
+
 def load_data_from_godot():
     # In reality, you would do:
     # with open("game_history.json", "r") as f:
@@ -96,9 +99,7 @@ def load_data_from_godot():
             
     return training_data
 
-# ==========================================
-# 4. THE TRAINING LOOP
-# ==========================================
+
 def train():
     # Hyperparameters
     INPUT_SIZE = 225 # Example: 15x15 board
