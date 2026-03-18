@@ -10,9 +10,9 @@ public class Options : MenuAbstract
 	public override void _Ready()
 	{
 		base._Ready();
-		_musicCheck = GetNode<CheckButton>("MusicCheck");
-		_sfxCheck = GetNode<CheckButton>("SfxCheck");
-		_fullscreenCheck = GetNode<CheckButton>("FullscreenCheck");
+		_musicCheck = GetNode<CheckButton>("HFlowContainer/MusicCheck");
+		_sfxCheck = GetNode<CheckButton>("HFlowContainer/SfxCheck");
+		_fullscreenCheck = GetNode<CheckButton>("HFlowContainer/FullscreenCheck");
 		
 		_musicCheck.Pressed = !AudioServer.IsBusMute(AudioServer.GetBusIndex("music"));
 		_sfxCheck.Pressed = !AudioServer.IsBusMute(AudioServer.GetBusIndex("sfx"));

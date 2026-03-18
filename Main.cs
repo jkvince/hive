@@ -71,16 +71,16 @@ public class Main : Spatial
 	}
 	
 	private void MoveInMenu(Control node) {
-		node.SetPosition(new Vector2(512, -300));
+		node.SetPosition(new Vector2(0, -300));
 		var tween = CreateTween();
-		tween.TweenProperty(node, "rect_position", new Vector2(512, 300), 1.3f)
+		tween.TweenProperty(node, "rect_position", new Vector2(0, 0), 1.3f)
 			.SetEase(Tween.EaseType.Out)
 			.SetTrans(Tween.TransitionType.Circ);
 	}
 	
 	private void MoveOutMenu(Control node) {
 		var tween = CreateTween();
-		tween.TweenProperty(node, "rect_position", new Vector2(512, 1000), 0.4f)
+		tween.TweenProperty(node, "rect_position", new Vector2(0, 1000), 0.4f)
 			.SetEase(Tween.EaseType.In)
 			.SetTrans(Tween.TransitionType.Sine);
 
