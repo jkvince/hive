@@ -6,7 +6,7 @@ public class NewGame : MenuAbstract
 	private HSlider _difficultySlider;
 	public override void _Ready() {
 		base._Ready();
-		_difficultySlider = GetNode<HSlider>("DifficultySlider");
+		_difficultySlider = GetNode<HSlider>("HFlowContainer/DifficultySlider");
 	}
 	
 	private void _on_StartButton_pressed()

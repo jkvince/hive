@@ -1,12 +1,68 @@
-[gd_scene format=2]
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://ui/QuickMenu.cs" type="Script" id=2]
 
 [node name="InGame" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="Label" type="Label" parent="."]
-margin_left = 27.0
-margin_top = 369.0
-margin_right = 303.0
-margin_bottom = 459.0
-text = "In-game ui"
+[node name="UserHand" type="HBoxContainer" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -129.0
+margin_right = 414.0
+
+[node name="QueenBee" type="VBoxContainer" parent="UserHand"]
+margin_bottom = 129.0
+
+[node name="Icon" type="Sprite" parent="UserHand/QueenBee"]
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 1 )
+
+[node name="Grasshopper" type="VBoxContainer" parent="UserHand"]
+margin_left = 4.0
+margin_right = 4.0
+margin_bottom = 129.0
+
+[node name="Icon" type="Sprite" parent="UserHand/Grasshopper"]
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 1 )
+
+[node name="Icon2" type="Sprite" parent="UserHand/Grasshopper"]
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 1 )
+
+[node name="QuickMenu" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="Button" type="Button" parent="QuickMenu"]
+margin_right = 48.0
+margin_bottom = 20.0
+text = "Menu"
+
+[node name="PopupMenu" type="PopupMenu" parent="QuickMenu"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -22.0
+margin_top = -10.0
+margin_right = 22.0
+margin_bottom = 10.0
+
+[node name="Return" type="Button" parent="QuickMenu/PopupMenu"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -55.5
+margin_top = -10.0
+margin_right = 55.5
+margin_bottom = 10.0
+text = "Return to Menu"
+
+[connection signal="pressed" from="QuickMenu/Button" to="QuickMenu" method="_on_Button_pressed"]
+[connection signal="pressed" from="QuickMenu/PopupMenu/Return" to="QuickMenu" method="_on_Return_pressed"]
