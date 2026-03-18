@@ -71,7 +71,8 @@ public class Main : Spatial
 	}
 	
 	private void MoveInMenu(Control node) {
-		node.SetPosition(new Vector2(0, -300));
+		var res = OS.WindowSize.y;
+		node.SetPosition(new Vector2(0, -res));
 		var tween = CreateTween();
 		tween.TweenProperty(node, "rect_position", new Vector2(0, 0), 1.3f)
 			.SetEase(Tween.EaseType.Out)
@@ -79,8 +80,9 @@ public class Main : Spatial
 	}
 	
 	private void MoveOutMenu(Control node) {
+		var res = OS.WindowSize.y;
 		var tween = CreateTween();
-		tween.TweenProperty(node, "rect_position", new Vector2(0, 1000), 0.4f)
+		tween.TweenProperty(node, "rect_position", new Vector2(0, res * 2), 0.4f)
 			.SetEase(Tween.EaseType.In)
 			.SetTrans(Tween.TransitionType.Sine);
 
