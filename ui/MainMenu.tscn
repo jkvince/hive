@@ -45,20 +45,25 @@ margin_right = 82.0
 margin_bottom = 68.0
 text = "Rules"
 
+[node name="CreditsButton" type="Button" parent="HFlowContainer"]
+margin_top = 72.0
+margin_right = 82.0
+margin_bottom = 92.0
+text = "Credits"
+
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_top = -65.0
+margin_top = -40.0
 margin_right = 280.0
-rect_min_size = Vector2( 200, 65 )
+rect_min_size = Vector2( 200, 40 )
 bbcode_enabled = true
 bbcode_text = "Created By Vincenzo K. Joyce
-Powered with Godot Engine
-Music By: sleepyvolume(fixabay.com)"
+Powered with Godot Engine"
 text = "Created By Vincenzo K. Joyce
-Powered with Godot Engine
-Music By: sleepyvolume(fixabay.com)"
+Powered with Godot Engine"
 
 [connection signal="pressed" from="HFlowContainer/StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="HFlowContainer/OptionsButton" to="." method="_on_OptionsButton_pressed"]
 [connection signal="pressed" from="HFlowContainer/RulesButton" to="." method="_on_RulesButton_pressed"]
+[connection signal="pressed" from="HFlowContainer/CreditsButton" to="." method="_on_CreditsButton_pressed"]

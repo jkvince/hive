@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/sergequadrado-moment-14023.mp3-f9c2cfffc4c6167509d2ea91648ea0ea.mp3str"
+
+[deps]
+
+source_file="res://audio/sergequadrado-moment-14023.mp3"
+dest_files=[ "res://.import/sergequadrado-moment-14023.mp3-f9c2cfffc4c6167509d2ea91648ea0ea.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

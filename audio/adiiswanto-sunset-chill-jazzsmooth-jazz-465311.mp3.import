@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/adiiswanto-sunset-chill-jazzsmooth-jazz-465311.mp3-46c1a64543cf0ed85b615f241811086f.mp3str"
+
+[deps]
+
+source_file="res://audio/adiiswanto-sunset-chill-jazzsmooth-jazz-465311.mp3"
+dest_files=[ "res://.import/adiiswanto-sunset-chill-jazzsmooth-jazz-465311.mp3-46c1a64543cf0ed85b615f241811086f.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

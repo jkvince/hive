@@ -11,5 +11,5 @@ dest_files=[ "res://.import/lofi-jazz-cafe-327791.mp3-e0cb6bd13fb110840f67add84e
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

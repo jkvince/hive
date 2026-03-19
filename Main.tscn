@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://audio/lofi-jazz-cafe-327791.mp3" type="AudioStream" id=1]
 [ext_resource path="res://Main.cs" type="Script" id=2]
 [ext_resource path="res://GameLogic.cs" type="Script" id=3]
+[ext_resource path="res://Music.cs" type="Script" id=4]
 
 [sub_resource type="SpatialMaterial" id=4]
 flags_transparent = true
@@ -35,10 +36,14 @@ script = ExtResource( 2 )
 [node name="GameLogic" type="Node" parent="."]
 script = ExtResource( 3 )
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
 volume_db = -15.0
 bus = "music"
+script = ExtResource( 4 )
+
+[node name="Timer" type="Timer" parent="Music"]
+wait_time = 10.0
 
 [node name="CPUParticles" type="CPUParticles" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -150, -31, 0 )
@@ -71,3 +76,6 @@ material/0 = SubResource( 2 )
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 10, 0 )
 current = true
 far = 60.0
+
+[connection signal="finished" from="Music" to="Music" method="_on_Music_finished"]
+[connection signal="timeout" from="Music/Timer" to="Music" method="_on_Timer_timeout"]

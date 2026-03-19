@@ -11,7 +11,7 @@ public class Main : Spatial
 
 	public override void _Ready()
 	{
-		_audioStreamPlayer = GetNode<AudioStreamPlayer>("AudioStreamPlayer");
+		_audioStreamPlayer = GetNode<AudioStreamPlayer>("Music");
 		_audioStreamPlayer.VolumeDb = -80;
 		_fistClick = false;
 		
@@ -42,6 +42,7 @@ public class Main : Spatial
 		NewGame,
 		Options,
 		Rules,
+		Credits,
 		InGame
 	}
 	
@@ -63,6 +64,8 @@ public class Main : Spatial
 				return "res://ui/Options.tscn";
 			case Menus.Rules:
 				return "res://ui/Rules.tscn";
+			case Menus.Credits:
+				return "res://ui/Credits.tscn";
 			case Menus.InGame:
 				return "res://ui/InGame.tscn";
 			default:
