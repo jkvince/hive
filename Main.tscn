@@ -43,7 +43,7 @@ bus = "music"
 script = ExtResource( 4 )
 
 [node name="Timer" type="Timer" parent="Music"]
-wait_time = 10.0
+wait_time = 5.0
 
 [node name="CPUParticles" type="CPUParticles" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -150, -31, 0 )

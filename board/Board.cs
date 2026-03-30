@@ -193,7 +193,7 @@ public class Board : Spatial {
 	
 	public string PieceTypeString(GameLogic.PieceType type) {
 		switch (type) {
-			case  GameLogic.PieceType.QueenBee:
+			case GameLogic.PieceType.QueenBee:
 				return "res://Pieces/queenbee.svg";
 			case GameLogic.PieceType.Ant:
 				return "res://Pieces/ant.svg";

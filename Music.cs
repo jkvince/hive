@@ -16,7 +16,6 @@ public class Music : AudioStreamPlayer {
 		Stop();
 		NextSong();
 		var stream = (AudioStream) GD.Load(IndexToFile(_musicIndex));
-		//stream.LoopMode = AudioStreamSample.LoopModeEnum.Disabled;
 		Debug.Assert(stream != null);
 		Stream = stream;
 	}
@@ -32,7 +31,7 @@ public class Music : AudioStreamPlayer {
 		}
 	}
 
-	private string IndexToFile(int index) {
+	private static string IndexToFile(int index) {
 		switch (index) {
 			case 0:
 				return "audio/lofi-jazz-cafe-327791.mp3";
