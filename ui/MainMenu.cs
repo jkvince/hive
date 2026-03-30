@@ -17,7 +17,10 @@ public class MainMenu : MenuAbstract
 	{
 		Main.SetMenu(Main.Menus.Rules);
 	}
+	
+	private void _on_CreditsButton_pressed()
+	{
+		Main.SetMenu(Main.Menus.Credits);
+	}
 }
-
-
 
