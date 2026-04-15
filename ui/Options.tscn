@@ -19,31 +19,28 @@ margin_bottom = 76.0
 alignment = 1
 
 [node name="FullscreenCheck" type="CheckButton" parent="HFlowContainer"]
+margin_top = 24.0
 margin_right = 146.0
-margin_bottom = 40.0
+margin_bottom = 64.0
 text = "Fullscreen"
 
-[node name="MusicCheck" type="CheckButton" parent="HFlowContainer"]
-margin_top = 44.0
+[node name="MusicSlide" type="HSlider" parent="HFlowContainer"]
+margin_top = 68.0
 margin_right = 146.0
 margin_bottom = 84.0
-pressed = true
-text = "Music"
 
-[node name="SfxCheck" type="CheckButton" parent="HFlowContainer"]
+[node name="SfxSlide" type="HSlider" parent="HFlowContainer"]
 margin_top = 88.0
 margin_right = 146.0
-margin_bottom = 128.0
-pressed = true
-text = "Sfx"
+margin_bottom = 104.0
 
 [node name="BackButton" type="Button" parent="HFlowContainer"]
-margin_top = 132.0
+margin_top = 108.0
 margin_right = 146.0
-margin_bottom = 152.0
+margin_bottom = 128.0
 text = "Back"
 
 [connection signal="toggled" from="HFlowContainer/FullscreenCheck" to="." method="_on_FullscreenCheck_toggled"]
-[connection signal="toggled" from="HFlowContainer/MusicCheck" to="." method="_on_MusicCheck_toggled"]
-[connection signal="toggled" from="HFlowContainer/SfxCheck" to="." method="_on_CheckButton_toggled"]
+[connection signal="value_changed" from="HFlowContainer/MusicSlide" to="." method="_on_MusicSlide_value_changed"]
+[connection signal="value_changed" from="HFlowContainer/SfxSlide" to="." method="_on_SfxSlide_value_changed"]
 [connection signal="pressed" from="HFlowContainer/BackButton" to="." method="_on_BackButton_pressed"]

@@ -3,31 +3,29 @@ using System;
 
 public class Options : MenuAbstract
 {
-	private CheckButton _musicCheck;
-	private CheckButton _sfxCheck;
+	private int MusicIndex;
+	private int SfxIndex;
+	
+	private HSlider _musicSlider;
+	private HSlider _sfxSlider;
 	private CheckButton _fullscreenCheck;
 	
 	public override void _Ready()
 	{
 		base._Ready();
-		_musicCheck = GetNode<CheckButton>("HFlowContainer/MusicCheck");
-		_sfxCheck = GetNode<CheckButton>("HFlowContainer/SfxCheck");
+		MusicIndex = AudioServer.GetBusIndex("music");
+		SfxIndex = AudioServer.GetBusIndex("sfx");
+		
+		
+		_musicSlider = GetNode<HSlider>("HFlowContainer/MusicSlide");
+		_sfxSlider = GetNode<HSlider>("HFlowContainer/SfxSlide");
 		_fullscreenCheck = GetNode<CheckButton>("HFlowContainer/FullscreenCheck");
 		
-		_musicCheck.Pressed = !AudioServer.IsBusMute(AudioServer.GetBusIndex("music"));
-		_sfxCheck.Pressed = !AudioServer.IsBusMute(AudioServer.GetBusIndex("sfx"));
+		_musicSlider.Value = DbToRange(AudioServer.GetBusVolumeDb(MusicIndex));
+		_sfxSlider.Value = DbToRange(AudioServer.GetBusVolumeDb(SfxIndex));
 		_fullscreenCheck.Pressed = OS.WindowFullscreen;
 	}
 	
-	private void _on_CheckButton_toggled(bool button_pressed)
-	{
-		AudioServer.SetBusMute(AudioServer.GetBusIndex("sfx"), !button_pressed);
-	}
-	
-	private void _on_MusicCheck_toggled(bool button_pressed)
-	{
-		AudioServer.SetBusMute(AudioServer.GetBusIndex("music"), !button_pressed);
-	}
 	
 	private void _on_BackButton_pressed()
 	{
@@ -38,7 +36,24 @@ public class Options : MenuAbstract
 	{
 		OS.WindowFullscreen = button_pressed;
 	}
+	
+	private void _on_MusicSlide_value_changed(float value)
+	{
+		AudioServer.SetBusVolumeDb(MusicIndex, RangeToDb(value));
+	}
+	
+	private void _on_SfxSlide_value_changed(float value)
+	{
+		AudioServer.SetBusVolumeDb(SfxIndex, RangeToDb(value));
+	}
 
+	private static float RangeToDb(float range) {
+		return - (float) Math.Pow(80 , (1 - range / 100));
+	}
+
+	private static float DbToRange(float db) {
+		return (float) (1 - Math.Log(-db, 80)) * 100;
+	}
 }
 
 
