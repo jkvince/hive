@@ -1,9 +1,12 @@
 using Godot;
 using System;
+using System.Diagnostics;
 using Array = Godot.Collections.Array;
 
 public class Main : Spatial
 {
+	public static Main Instance = null;
+
 	private AudioStreamPlayer _audioStreamPlayer;
 	private Control _currentMenu;
 
@@ -11,6 +14,9 @@ public class Main : Spatial
 
 	public override void _Ready()
 	{
+		Debug.Assert(Instance == null);
+		Instance = this;
+
 		_audioStreamPlayer = GetNode<AudioStreamPlayer>("Music");
 		_audioStreamPlayer.VolumeDb = -80;
 		_fistClick = false;
@@ -20,7 +26,13 @@ public class Main : Spatial
 		MoveInMenu(node);
 		_currentMenu = node;
 	}
-	
+
+	public override void _ExitTree()
+	{
+		// Not really needed because it's root node
+		Instance = null;
+	}
+
 	public override void _Input(InputEvent @event)
 	{
 		if (@event is InputEventMouseButton mouseButton && mouseButton.Pressed && mouseButton.ButtonIndex == (int)ButtonList.Left)

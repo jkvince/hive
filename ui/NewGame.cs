@@ -1,20 +1,19 @@
 using Godot;
 using System;
 
-public class NewGame : MenuAbstract
+public class NewGame : Control
 {
 	private HSlider _difficultySlider;
 	public override void _Ready() {
-		base._Ready();
 		_difficultySlider = GetNode<HSlider>("HFlowContainer/DifficultySlider");
 	}
 	
 	private void _on_StartButton_pressed()
 	{
-		Main.SetMenu(Main.Menus.InGame);
+		Main.Instance.SetMenu(Main.Menus.InGame);
 		
 		var node = (Spatial) ((PackedScene) ResourceLoader.Load("res://board/Board.tscn")).Instance();
-		Main.AddChild(node);
+		Main.Instance.AddChild(node);
 	}
 	
 	private void _on_DifficultySlider_drag_ended(bool value_changed)
@@ -27,7 +26,7 @@ public class NewGame : MenuAbstract
 
 	private void _on_BackButton_pressed()
 	{
-		Main.SetMenu(Main.Menus.Main);
+		Main.Instance.SetMenu(Main.Menus.Main);
 	}
 
 

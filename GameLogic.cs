@@ -101,6 +101,11 @@ public class GameLogic : Node
 			S = s;
 		}
 
+		public override bool Equals(object obj)
+		{
+			return base.Equals(obj);
+		}
+
 		public static bool operator ==(PieceCoordinate c1, PieceCoordinate c2) {
 			return c1.GetHashCode() == c2.GetHashCode();
 		}

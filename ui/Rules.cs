@@ -1,11 +1,10 @@
 using Godot;
-using System;
 
-public class Rules : MenuAbstract
+public class Rules : Control
 {
 	private void _on_BackButton_pressed()
 	{
-		Main.SetMenu(Main.Menus.Main);
+		Main.Instance.SetMenu(Main.Menus.Main);
 	}
 
 }

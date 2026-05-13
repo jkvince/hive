@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class Options : MenuAbstract
+public class Options : Control
 {
 	private int MusicIndex;
 	private int SfxIndex;
@@ -12,7 +12,6 @@ public class Options : MenuAbstract
 	
 	public override void _Ready()
 	{
-		base._Ready();
 		MusicIndex = AudioServer.GetBusIndex("music");
 		SfxIndex = AudioServer.GetBusIndex("sfx");
 		
@@ -29,7 +28,7 @@ public class Options : MenuAbstract
 	
 	private void _on_BackButton_pressed()
 	{
-		Main.SetMenu(Main.Menus.Main);
+		Main.Instance.SetMenu(Main.Menus.Main);
 	}
 	
 	private void _on_FullscreenCheck_toggled(bool button_pressed)

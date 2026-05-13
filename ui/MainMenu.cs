@@ -1,26 +1,26 @@
 using Godot;
 using System;
 
-public class MainMenu : MenuAbstract
+public class MainMenu : Control
 {
 	private void _on_StartButton_pressed()
 	{
-		Main.SetMenu(Main.Menus.NewGame);
+		Main.Instance.SetMenu(Main.Menus.NewGame);
 	}
 
 	private void _on_OptionsButton_pressed()
 	{
-		Main.SetMenu(Main.Menus.Options);
+		Main.Instance.SetMenu(Main.Menus.Options);
 	}
 	
 	private void _on_RulesButton_pressed()
 	{
-		Main.SetMenu(Main.Menus.Rules);
+		Main.Instance.SetMenu(Main.Menus.Rules);
 	}
 	
 	private void _on_CreditsButton_pressed()
 	{
-		Main.SetMenu(Main.Menus.Credits);
+		Main.Instance.SetMenu(Main.Menus.Credits);
 	}
 }
 

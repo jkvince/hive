@@ -1,6 +1,5 @@
 using Godot;
 using System;
-using System.Diagnostics;
 
 public class Music : AudioStreamPlayer {
 	private Timer _timer;
@@ -67,8 +66,10 @@ public class Music : AudioStreamPlayer {
 			GD.Print("failed download");
 		}
 
-		var stream = new AudioStreamMP3();
-		stream.Data = body;
+		var stream = new AudioStreamMP3
+		{
+			Data = body
+		};
 		Stream = stream;
 
 	}

@@ -1,13 +1,12 @@
 using Godot;
 using System;
 
-public class QuickMenu : MenuAbstract
+public class QuickMenu : Control
 {
 	private PopupMenu _popupMenu;
 	
 	public override void _Ready()
 	{
-		base._Ready();
 		_popupMenu = GetNode<PopupMenu>("PopupMenu");
 	}
 	
@@ -17,7 +16,7 @@ public class QuickMenu : MenuAbstract
 	
 	private void _on_Return_pressed()
 	{
-		Main.SetMenu(Main.Menus.Main);
+		Main.Instance.SetMenu(Main.Menus.Main);
 	}
 	
 }
